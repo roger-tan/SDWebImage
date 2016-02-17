@@ -10,7 +10,6 @@
 #import "SDWebImageCompat.h"
 #import "SDWebImageOperation.h"
 
-NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_OPTIONS(NSUInteger, SDWebImageDownloaderOptions) {
     SDWebImageDownloaderLowPriority = 1 << 0,
@@ -64,6 +63,8 @@ typedef NS_ENUM(NSInteger, SDWebImageDownloaderExecutionOrder) {
      */
     SDWebImageDownloaderLIFOExecutionOrder
 };
+
+NS_ASSUME_NONNULL_BEGIN
 
 extern NSString *const SDWebImageDownloadStartNotification;
 extern NSString *const SDWebImageDownloadStopNotification;
@@ -183,11 +184,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @return A cancellable SDWebImageOperation
  */
+NS_ASSUME_NONNULL_END
+
+NS_ASSUME_NONNULL_BEGIN
+
 - (id <SDWebImageOperation>)downloadImageWithURL:(NSURL *)url
                                          options:(SDWebImageDownloaderOptions)options
-                                        progress:(SDWebImageDownloaderProgressBlock)progressBlock
-                                       completed:(SDWebImageDownloaderCompletedBlock)completedBlock;
+                                        progress:(_Nullable SDWebImageDownloaderProgressBlock)progressBlock
+                                       completed:(_Nullable SDWebImageDownloaderCompletedBlock)completedBlock;
 
+NS_ASSUME_NONNULL_END
 /**
  * Sets the download queue suspension state
  */
@@ -195,5 +201,5 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
+
 
