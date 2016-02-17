@@ -211,7 +211,7 @@ SDWebImageManager *manager = [SDWebImageManager sharedManager];
  */
 - (id <SDWebImageOperation>)downloadImageWithURL:(NSURL *)url
                                          options:(SDWebImageOptions)options
-                                        progress:(SDWebImageDownloaderProgressBlock)progressBlock
+                                        progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock
                                        completed:(nullable SDWebImageCompletionWithFinishedBlock)completedBlock;
 
 /**
