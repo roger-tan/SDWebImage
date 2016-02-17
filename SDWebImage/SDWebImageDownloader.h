@@ -10,6 +10,8 @@
 #import "SDWebImageCompat.h"
 #import "SDWebImageOperation.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_OPTIONS(NSUInteger, SDWebImageDownloaderOptions) {
     SDWebImageDownloaderLowPriority = 1 << 0,
     SDWebImageDownloaderProgressiveDownload = 1 << 1,
@@ -66,12 +68,15 @@ typedef NS_ENUM(NSInteger, SDWebImageDownloaderExecutionOrder) {
 extern NSString *const SDWebImageDownloadStartNotification;
 extern NSString *const SDWebImageDownloadStopNotification;
 
+NS_ASSUME_NONNULL_END
+
 typedef void(^SDWebImageDownloaderProgressBlock)(NSInteger receivedSize, NSInteger expectedSize);
 
-typedef void(^SDWebImageDownloaderCompletedBlock)(UIImage *image, NSData *data, NSError *error, BOOL finished);
+typedef void(^SDWebImageDownloaderCompletedBlock)(UIImage *_Nullable image, NSData *_Nullable data, NSError *_Nullable error, BOOL finished);
 
-typedef NSDictionary *(^SDWebImageDownloaderHeadersFilterBlock)(NSURL *url, NSDictionary *headers);
+typedef NSDictionary *_Nullable (^SDWebImageDownloaderHeadersFilterBlock)(NSURL *_Nullable url, NSDictionary *_Nullable headers);
 
+NS_ASSUME_NONNULL_BEGIN
 /**
  * Asynchronous downloader dedicated and optimized for image loading.
  */
@@ -189,3 +194,6 @@ typedef NSDictionary *(^SDWebImageDownloaderHeadersFilterBlock)(NSURL *url, NSDi
 - (void)setSuspended:(BOOL)suspended;
 
 @end
+
+NS_ASSUME_NONNULL_END
+
