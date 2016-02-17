@@ -95,7 +95,7 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
 
 typedef void(^SDWebImageCompletionBlock)(UIImage *_Nullable image, NSError *_Nullable error, SDImageCacheType cacheType, NSURL *_Nullable imageURL);
 
-typedef void(^SDWebImageCompletionWithFinishedBlock)(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL);
+typedef void(^SDWebImageCompletionWithFinishedBlock)(UIImage *_Nullableimage, NSError *_Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL *_Nullable imageURL);
 
 typedef NSString  * _Nullable (^SDWebImageCacheKeyFilterBlock)(NSURL *url);
 
