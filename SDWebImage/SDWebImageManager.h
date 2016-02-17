@@ -93,12 +93,15 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
     SDWebImageAvoidAutoSetImage = 1 << 11
 };
 
-typedef void(^SDWebImageCompletionBlock)(UIImage *_Nullable image, NSError *_Nullable error, SDImageCacheType cacheType, NSURL *_Nullable imageURL);
+NS_ASSUME_NONNULL_END
 
-typedef void(^SDWebImageCompletionWithFinishedBlock)(UIImage *_Nullableimage, NSError *_Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL *_Nullable imageURL);
+typedef void(^SDWebImageCompletionBlock)(UIImage  * _Nullable image, NSError  * _Nullable error, SDImageCacheType cacheType, NSURL *__nullable imageURL);
 
-typedef NSString  * _Nullable (^SDWebImageCacheKeyFilterBlock)(NSURL *url);
+typedef void(^SDWebImageCompletionWithFinishedBlock)(UIImage *_Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL *_Nullable imageURL);
 
+typedef NSString  * _Nullable (^SDWebImageCacheKeyFilterBlock)(NSURL *_Nullable url);
+
+NS_ASSUME_NONNULL_BEGIN
 
 @class SDWebImageManager;
 
@@ -209,7 +212,7 @@ SDWebImageManager *manager = [SDWebImageManager sharedManager];
 - (id <SDWebImageOperation>)downloadImageWithURL:(NSURL *)url
                                          options:(SDWebImageOptions)options
                                         progress:(SDWebImageDownloaderProgressBlock)progressBlock
-                                       completed:(SDWebImageCompletionWithFinishedBlock)completedBlock;
+                                       completed:(nullable SDWebImageCompletionWithFinishedBlock)completedBlock;
 
 /**
  * Saves image to cache for given URL
@@ -301,3 +304,4 @@ typedef void(^SDWebImageCompletedWithFinishedBlock)(UIImage *image, NSError *err
 @end
 
 NS_ASSUME_NONNULL_END
+
