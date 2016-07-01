@@ -199,6 +199,11 @@ NS_ASSUME_NONNULL_END
  */
 - (void)setSuspended:(BOOL)suspended;
 
+/**
+ * Cancels all download operations in the queue
+ */
+- (void)cancelAllDownloads;
+
 @end
 
 
